@@ -226,10 +226,14 @@ header {
         }
       }
     }
+
     .dropdown {
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 5px;
       margin-inline-start: 50px;
+      .dropdown-menu {
+        height: 20vh;
+      }
 
       &:hover {
         background-color: rgba(0, 0, 0, 0.6);
