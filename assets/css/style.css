@@ -226,7 +226,7 @@ header nav .dropdown {
   margin-inline-start: 50px;
 }
 header nav .dropdown .dropdown-menu {
-  height: 20vh;
+  height: 125px !important;
 }
 header nav .dropdown:hover {
   background-color: rgba(0, 0, 0, 0.6);
