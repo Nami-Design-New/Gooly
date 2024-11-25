@@ -33,7 +33,7 @@ $transition: all .4s ease-in-out;
 @mixin centerAbsolute {
   position: absolute;
   top: 50%;
-  left: 50%;
+  right: 50%;
   transform: translate(-50%, -50%);
 }
 @mixin clearInput {
@@ -70,7 +70,7 @@ $transition: all .4s ease-in-out;
 * {
   margin: 0;
   padding: 0;
-  direction: rtl;
+  direction: ltr;
   line-height: 32px;
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -103,12 +103,12 @@ header {
   backdrop-filter: blur(2px);
   height: 80px;
   display: flex;
-  background: rgb(26, 157, 87);
+  background: #0e7967;
   box-shadow: $shadow;
   position: fixed;
   z-index: 99;
   top: 0;
-  left: 0;
+  right: 0;
   nav {
     height: 100%;
     position: static !important;
@@ -142,7 +142,7 @@ header {
             content: '';
             position: absolute;
             bottom: -2px;
-            left: 50%;
+            right: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 2px;
@@ -167,11 +167,11 @@ header {
       @media (max-width: 992px) {
         position: absolute;
         top: 100px;
-        right: -100%;
+        left: -100%;
         width: 100%;
         background: $white;
         flex-direction: column;
-        height: calc(60vh - 100px);
+        height: calc(50vh - 100px);
         justify-content: flex-start;
         padding: 32px 0;
         transition: $transition;
@@ -180,7 +180,7 @@ header {
           padding: 8px 24px;
         }
         &.show {
-          right: 0;
+          left: 0;
         }
       }
     }
@@ -208,7 +208,7 @@ header {
           position: absolute;
           content: '';
           top: -60px;
-          left: -60px;
+          right: -60px;
           border-radius: 50%;
           background: $second;
           z-index: 0;
@@ -224,30 +224,6 @@ header {
             height: 200px;
           }
         }
-      }
-    }
-    .dropdown {
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 5px;
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.6);
-      }
-
-      .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .show {
-        border: transparent;
-      }
-
-      i {
-        color: #fff;
-        font-size: 26px;
-        padding: 0;
-        margin: 0;
       }
     }
     .menu-btn {
@@ -273,7 +249,7 @@ header {
           display: block;
           position: absolute;
           top: -9px;
-          left: 0;
+          right: 0;
           height: 2px;
           width: 100%;
           background-color: #fff;
@@ -284,7 +260,7 @@ header {
           display: block;
           position: absolute;
           bottom: -9px;
-          left: 0;
+          right: 0;
           height: 2px;
           width: 100%;
           background-color: #fff;
@@ -306,7 +282,6 @@ header {
     }
   }
 }
-
 main {
   margin-top: 80px;
 }
@@ -318,7 +293,7 @@ main {
   }
   .img {
     padding-top: 20px;
-    width: 90%;
+    width: 100%;
     @include centerFlex();
     img {
       width: 100%;
@@ -394,7 +369,7 @@ main {
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    margin-right: auto;
+    margin-left: auto;
     @include centerFlex();
     background-size: contain;
     background-repeat: no-repeat;
@@ -419,9 +394,9 @@ main {
       }
     }
     img {
-      height: 45%;
+      height: 50%;
       @media (max-width: 576px) {
-        height: 40%;
+        height: 50%;
       }
     }
   }
@@ -467,7 +442,7 @@ main {
           width: 100%;
           height: 100%;
           top: 0;
-          left: 0;
+          right: 0;
           background: linear-gradient(180deg, #0e796700 23.76%, #20c46c 90.19%);
         }
       }
@@ -513,7 +488,7 @@ main {
     width: 100%;
     height: 100%;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 0;
     background: #006416d4;
   }
@@ -622,7 +597,7 @@ main {
         }
         position: absolute;
         top: 50%;
-        left: 50%;
+        right: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
       }
@@ -641,14 +616,14 @@ main {
     }
     .swiper-3d .swiper-slide-shadow-left {
       background: linear-gradient(
-        to left,
+        to right,
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0)
       );
     }
     .swiper-3d .swiper-slide-shadow-right {
       background: linear-gradient(
-        to right,
+        to left,
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0)
       );
@@ -659,11 +634,9 @@ main {
   padding: 60px 8px;
   object-position: center;
   position: relative;
-  background-image: linear-gradient(180deg, #02a350, #0e7967);
-
-  // background-image: url(../images/contact.jpg);
+  background-image: url(../images/contact.jpg);
   isolation: isolate;
-  // background-size: cover;
+  background-size: cover;
   form {
     padding: 48px 32px;
     backdrop-filter: blur(16px) saturate(180%);
@@ -694,7 +667,7 @@ main {
           position: absolute;
           font-size: 14px;
           color: $white;
-          right: 32px;
+          left: 32px;
           transform: translateY(-50%);
           top: 50%;
           font-weight: 500;
@@ -712,7 +685,6 @@ main {
         textarea {
           width: 100%;
           height: 45px;
-          color: #fff;
           @include clearInput();
           &:focus + span::after {
             width: calc(100% - 64px);
@@ -730,7 +702,7 @@ main {
             content: "";
             width: 0;
             transition: $transition;
-            left: 50%;
+            right: 50%;
             height: 2px;
             background: $second;
             position: absolute;
@@ -742,7 +714,7 @@ main {
     button {
       @include clearInput();
       align-self: flex-end;
-      margin-left: 32px;
+      margin-right: 32px;
       isolation: isolate;
       padding: 0 16px;
       width: 140px;
@@ -759,7 +731,7 @@ main {
         content: "";
         height: 150px;
         width: 0;
-        right: 10px;
+        left: 10px;
         transition: $transition;
         background: $second;
         transform: rotate(-25deg);
@@ -770,7 +742,7 @@ main {
         border-color: $second;
         &::after {
           width: 110%;
-          right: -10px;
+          left: -10px;
         }
       }
     }
@@ -791,7 +763,7 @@ footer {
         @include centerFlex();
         color: $main;
         transition: 0.3s ease-in-out;
-        border-radius: 25%;
+        border-radius: 50%;
         background: $mainbg;
         &:hover {
           background: $second;
