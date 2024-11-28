@@ -192,13 +192,14 @@ header nav .btns a {
   background: #eefbf4;
   position: relative;
   border-radius: 4px;
-  padding: 6px 20px;
+  padding: 4px 10px;
   isolation: isolate;
   overflow: hidden;
 }
 header nav .btns a span {
   z-index: 1;
   position: relative;
+  text-align: center;
 }
 header nav .btns a::after {
   position: absolute;
@@ -336,7 +337,7 @@ main {
   flex-direction: column;
 }
 .heroSection .text span {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   color: #0e7967;
 }
@@ -346,7 +347,7 @@ main {
   color: #0e7967;
 }
 .heroSection .text h1 {
-  font-size: 60px;
+  font-size: 40px;
   color: #000;
   line-height: 80px;
   font-weight: 700;
@@ -402,8 +403,8 @@ main {
   line-height: 26px;
 }
 .about_section .circle {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   margin-right: auto;
   display: flex;
@@ -435,7 +436,7 @@ main {
   bottom: 0;
 }
 .about_section .circle img {
-  height: 45%;
+  height: 40%;
 }
 @media (max-width: 576px) {
   .about_section .circle img {
@@ -520,9 +521,10 @@ main {
 }
 
 .findFriends {
-  padding: 40px 0;
+  padding: 50px 60px;
   background-position: center;
   position: relative;
+  text-align: center;
   height: 500px;
   background-image: url(../images/find.webp);
   isolation: isolate;
@@ -584,25 +586,32 @@ main {
   color: #fff;
   font-weight: 600;
   line-height: 65px;
-  font-size: 42px;
+  font-size: 35px;
 }
 @media (max-width: 576px) {
   .findFriends .content h2 {
     line-height: 46px;
-    font-size: 28px;
+    font-size: 22px;
   }
 }
 .findFriends .content .download_btns {
   display: flex;
   gap: 16px;
   margin-top: 32px;
+  margin-right: 125px;
+}
+@media (max-width: 576px) {
+  .findFriends .content .download_btns {
+    margin: 0;
+  }
 }
 .findFriends .content .download_btns img {
   height: 52px;
 }
 @media (max-width: 576px) {
   .findFriends .content .download_btns img {
-    height: 44px;
+    height: 50px;
+    width: 100px;
   }
 }
 
@@ -824,9 +833,78 @@ main {
   width: 110%;
   right: -10px;
 }
+@media (max-width: 576px) {
+  .contact form button {
+    margin: 0 auto;
+  }
+}
+.contact form .cont_rep {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 576px) {
+  .contact form .cont_rep {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+}
+.contact form .reCAPTCHA_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+@media (max-width: 576px) {
+  .contact form .reCAPTCHA_container {
+    width: 90%;
+  }
+}
+.contact form .reCAPTCHA_container .box_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact form .reCAPTCHA_container .box_input input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c1c1c1;
+  margin: 0px 8px 0px 8px;
+}
+.contact form .reCAPTCHA_container .box_input input[type=checkbox]:checked::before {
+  content: url(https://img.icons8.com/?size=20&id=27&format=png&color=1e5180);
+  display: block;
+}
+.contact form .reCAPTCHA_container .box_input p {
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
+}
+.contact form .reCAPTCHA_container .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact form .reCAPTCHA_container .img h5 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 8px;
+  color: #000;
+}
 
 footer {
-  padding: 20px 0;
+  padding: 8px 0;
 }
 footer .follow {
   display: flex;
@@ -861,6 +939,14 @@ footer .copy p {
 
 .services {
   padding: 40px 0;
+  background-color: #eee;
+}
+.services .serv_section {
+  background-color: #fff;
+  border: 1px solid #fff;
+  box-shadow: rgba(101, 243, 35, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 32px;
+  border-radius: 8px 8px 8px 0;
 }
 .services .title {
   margin-bottom: 24px;
@@ -868,6 +954,7 @@ footer .copy p {
 .services .img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 2/1;
 }
 .services .img:nth-child(1) {
   border-radius: 8px 8px 8px 0;
@@ -883,13 +970,13 @@ footer .copy p {
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
 }
 .services .content h2 {
-  font-size: 24px;
+  font-size: 28px;
   color: #0e7967;
   font-weight: 600;
 }
 .services .content p {
   color: #000;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 26px;
 }
 .services .content h6 {
