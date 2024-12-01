@@ -229,6 +229,13 @@ header nav .dropdown {
 header nav .dropdown .dropdown-menu {
   height: 125px !important;
 }
+@media (max-width: 992px) {
+  header nav .dropdown {
+    margin-inline-end: 50px;
+    margin-inline-start: 0px;
+    order: -1;
+  }
+}
 header nav .dropdown:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
@@ -245,6 +252,11 @@ header nav .dropdown i {
   font-size: 26px;
   padding: 0;
   margin: 0;
+}
+@media (max-width: 992px) {
+  header nav .dropdown i {
+    font-size: 22px;
+  }
 }
 header nav .menu-btn {
   cursor: pointer;
@@ -316,6 +328,9 @@ main {
   }
 }
 .heroSection .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-top: 20px;
   width: 90%;
   display: flex;
@@ -370,6 +385,8 @@ main {
 }
 .heroSection .text .download_btns {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 .heroSection .text .download_btns img {
@@ -403,6 +420,10 @@ main {
   line-height: 26px;
 }
 .about_section .circle {
+  background-image: url(../images/find.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 350px;
   height: 350px;
   border-radius: 50%;
@@ -410,10 +431,18 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
+}
+.about_section .circle::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(75, 73, 73, 0.6);
 }
 @media (max-width: 576px) {
   .about_section .circle {
@@ -437,10 +466,11 @@ main {
 }
 .about_section .circle img {
   height: 40%;
+  position: relative;
 }
 @media (max-width: 576px) {
   .about_section .circle img {
-    height: 40%;
+    height: 30%;
   }
 }
 .about_section .about_card {
@@ -553,6 +583,8 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
   justify-content: end;
 }
@@ -566,12 +598,13 @@ main {
 }
 @media (max-width: 576px) {
   .findFriends .img img {
-    width: 80%;
+    width: 100%;
   }
 }
 @media (max-width: 576px) {
   .findFriends .img {
     justify-content: center;
+    width: 100%;
   }
 }
 .findFriends .content {
@@ -591,7 +624,7 @@ main {
 @media (max-width: 576px) {
   .findFriends .content h2 {
     line-height: 46px;
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 .findFriends .content .download_btns {
@@ -599,6 +632,9 @@ main {
   gap: 16px;
   margin-top: 32px;
   margin-right: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 576px) {
   .findFriends .content .download_btns {
@@ -607,6 +643,8 @@ main {
 }
 .findFriends .content .download_btns img {
   height: 52px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 576px) {
   .findFriends .content .download_btns img {
@@ -724,7 +762,7 @@ main {
 }
 @media (max-width: 576px) {
   .contact form {
-    padding: 32px 0;
+    padding: 22px 0;
   }
 }
 .contact form .form-group {
@@ -734,7 +772,7 @@ main {
 @media (max-width: 768px) {
   .contact form .form-group {
     flex-direction: column;
-    gap: 48px;
+    gap: 20px;
   }
 }
 .contact form .form-group .inputfield {
