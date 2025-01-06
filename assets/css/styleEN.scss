@@ -34,7 +34,7 @@ $transition: all .4s ease-in-out;
   position: absolute;
   top: 50%;
   right: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, -50%);
 }
 @mixin clearInput {
   border: none;
@@ -103,7 +103,7 @@ header {
   backdrop-filter: blur(2px);
   height: 80px;
   display: flex;
-  background: #0e7967;
+  background: rgb(26, 157, 87);
   box-shadow: $shadow;
   position: fixed;
   z-index: 99;
@@ -143,7 +143,7 @@ header {
             position: absolute;
             bottom: -2px;
             right: 50%;
-            transform: translateX(-50%);
+            transform: translateX(50%);
             width: 0;
             height: 2px;
             background: $second;
@@ -171,7 +171,7 @@ header {
         width: 100%;
         background: $white;
         flex-direction: column;
-        height: calc(50vh - 100px);
+        height: calc(55vh - 100px);
         justify-content: flex-start;
         padding: 32px 0;
         transition: $transition;
@@ -197,12 +197,13 @@ header {
         background: $mainbg;
         position: relative;
         border-radius: 4px;
-        padding: 6px 20px;
+        padding: 4px 10px;
         isolation: isolate;
         overflow: hidden;
         span {
           z-index: 1;
           position: relative;
+          text-align: center;
         }
         &::after {
           position: absolute;
@@ -223,6 +224,44 @@ header {
             width: 200px;
             height: 200px;
           }
+        }
+      }
+    }
+
+    .dropdown {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      margin-inline-start: 50px;
+      .dropdown-menu {
+        height: 125px !important;
+      }
+      @media (max-width: 992px) {
+        margin-inline-end: 50px;
+        margin-inline-start: 0px;
+        order: -1;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .show {
+        border: transparent;
+      }
+
+      i {
+        color: #fff;
+        font-size: 26px;
+        padding: 0;
+        margin: 0;
+        @media (max-width: 992px) {
+          font-size: 22px;
         }
       }
     }
@@ -270,11 +309,9 @@ header {
           background-color: transparent;
           transform: rotate(90deg);
           &::before {
-            -webkit-transform: translate(0px, 10px) rotate(135deg);
             transform: translate(0px, 9px) rotate(135deg);
           }
           &::after {
-            -webkit-transform: translate(0px, -10px) rotate(-135deg);
             transform: translate(0px, -9px) rotate(-135deg);
           }
         }
@@ -282,6 +319,7 @@ header {
     }
   }
 }
+
 main {
   margin-top: 80px;
 }
@@ -292,8 +330,11 @@ main {
     padding-top: 24px;
   }
   .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 20px;
-    width: 100%;
+    width: 90%;
     @include centerFlex();
     img {
       width: 100%;
@@ -308,7 +349,7 @@ main {
     justify-content: center;
     flex-direction: column;
     span {
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 700;
       color: $second;
       i {
@@ -318,7 +359,7 @@ main {
       }
     }
     h1 {
-      font-size: 60px;
+      font-size: 40px;
       color: $main;
       line-height: 80px;
       font-weight: 700;
@@ -337,6 +378,8 @@ main {
     }
     .download_btns {
       display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 16px;
       img {
         height: 44px;
@@ -366,37 +409,53 @@ main {
     }
   }
   .circle {
-    width: 400px;
-    height: 400px;
+    background-image: url(../images/find.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     margin-left: auto;
     @include centerFlex();
-    background-size: contain;
     background-repeat: no-repeat;
     overflow: hidden;
     position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background-color: rgba(75, 73, 73, 0.6);
+    }
     @media (max-width: 576px) {
       width: 330px;
       height: 330px;
       margin: 20px auto 30px;
     }
+
     span {
       height: 100px;
       z-index: -1;
       width: 120%;
       background: $mainbg;
       position: absolute;
+
       &:nth-child(1) {
         top: 0;
       }
+
       &:nth-child(3) {
         bottom: 0;
       }
     }
     img {
-      height: 50%;
+      height: 40%;
+      position: relative;
       @media (max-width: 576px) {
-        height: 50%;
+        height: 30%;
       }
     }
   }
@@ -472,9 +531,10 @@ main {
   color: $second;
 }
 .findFriends {
-  padding: 40px 0;
+  padding: 50px 60px;
   background-position: center;
   position: relative;
+  text-align: center;
   height: 500px;
   background-image: url(../images/find.webp);
   isolation: isolate;
@@ -498,6 +558,8 @@ main {
   }
   .img {
     width: 100%;
+    display: flex;
+    align-items: center;
     @include centerFlex();
     justify-content: end;
     @media (max-width: 576px) {
@@ -506,11 +568,12 @@ main {
     img {
       width: 65%;
       @media (max-width: 576px) {
-        width: 80%;
+        width: 100%;
       }
     }
     @media (max-width: 576px) {
       justify-content: center;
+      width: 100%;
     }
   }
   .content {
@@ -522,20 +585,30 @@ main {
       color: $white;
       font-weight: 600;
       line-height: 65px;
-      font-size: 42px;
+      font-size: 35px;
       @media (max-width: 576px) {
         line-height: 46px;
-        font-size: 28px;
+        font-size: 20px;
       }
     }
     .download_btns {
       display: flex;
       gap: 16px;
       margin-top: 32px;
+      margin-left: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width: 576px) {
+        margin: 0;
+      }
       img {
         height: 52px;
+        object-fit: contain;
+
         @media (max-width: 576px) {
-          height: 44px;
+          height: 50px;
+          width: 100px;
         }
       }
     }
@@ -598,7 +671,7 @@ main {
         position: absolute;
         top: 50%;
         right: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(50%, -50%);
         z-index: 2;
       }
     }
@@ -634,9 +707,11 @@ main {
   padding: 60px 8px;
   object-position: center;
   position: relative;
-  background-image: url(../images/contact.jpg);
+  background-image: linear-gradient(180deg, #02a350, #0e7967);
+
+  // background-image: url(../images/contact.jpg);
   isolation: isolate;
-  background-size: cover;
+  // background-size: cover;
   form {
     padding: 48px 32px;
     backdrop-filter: blur(16px) saturate(180%);
@@ -648,14 +723,14 @@ main {
     flex-direction: column;
     gap: 48px;
     @media (max-width: 576px) {
-      padding: 32px 0;
+      padding: 22px 0;
     }
     .form-group {
       display: flex;
       width: 100%;
       @media (max-width: 768px) {
         flex-direction: column;
-        gap: 48px;
+        gap: 20px;
       }
       .inputfield {
         width: 100%;
@@ -685,6 +760,7 @@ main {
         textarea {
           width: 100%;
           height: 45px;
+          color: #fff;
           @include clearInput();
           &:focus + span::after {
             width: calc(100% - 64px);
@@ -706,7 +782,7 @@ main {
             height: 2px;
             background: $second;
             position: absolute;
-            transform: translate(-50%);
+            transform: translate(50% , -50%);
           }
         }
       }
@@ -745,11 +821,75 @@ main {
           left: -10px;
         }
       }
+      @media (max-width: 576px) {
+        margin: 0 auto;
+      }
+    }
+    .cont_rep {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+    }
+    .reCAPTCHA_container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      border: 1px solid #eee;
+      background-color: #eee;
+      padding: 10px 15px;
+      border-radius: 6px;
+      @media (max-width: 576px) {
+        width: 90%;
+      }
+
+      .box_input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input[type="checkbox"] {
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #c1c1c1;
+          margin: 0px 8px 0px 8px;
+        }
+        input[type="checkbox"]:checked::before {
+          content: url(https://img.icons8.com/?size=20&id=27&format=png&color=1e5180);
+          display: block;
+        }
+
+        p {
+          padding: 0;
+          margin: 0;
+          font-size: 11px;
+        }
+      }
+      .img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+        h5 {
+          text-align: center;
+          padding: 0;
+          margin: 0;
+          font-size: 8px;
+          color: #000;
+        }
+      }
     }
   }
 }
 footer {
-  padding: 20px 0;
+  padding: 8px 0;
   .follow {
     display: flex;
     gap: 24px;
@@ -763,7 +903,7 @@ footer {
         @include centerFlex();
         color: $main;
         transition: 0.3s ease-in-out;
-        border-radius: 50%;
+        border-radius: 25%;
         background: $mainbg;
         &:hover {
           background: $second;
@@ -781,12 +921,21 @@ footer {
 }
 .services {
   padding: 40px 0;
+  background-color: #eee;
+  .serv_section {
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: rgba(101, 243, 35, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 32px;
+    border-radius: 8px 8px 8px 0;
+  }
   .title {
     margin-bottom: 24px;
   }
   .img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 2/1;
     &:nth-child(1) {
       border-radius: 8px 8px 8px 0;
     }
@@ -801,13 +950,13 @@ footer {
   }
   .content {
     h2 {
-      font-size: 24px;
+      font-size: 28px;
       color: $second;
       font-weight: 600;
     }
     p {
       color: $main;
-      font-size: 14px;
+      font-size: 18px;
       line-height: 26px;
     }
     h6 {

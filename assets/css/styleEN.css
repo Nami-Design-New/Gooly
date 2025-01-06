@@ -89,7 +89,7 @@ header {
           backdrop-filter: blur(2px);
   height: 80px;
   display: flex;
-  background: #0e7967;
+  background: rgb(26, 157, 87);
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
   position: fixed;
   z-index: 99;
@@ -135,7 +135,7 @@ header nav ul li a::after {
   position: absolute;
   bottom: -2px;
   right: 50%;
-  transform: translateX(-50%);
+  transform: translateX(50%);
   width: 0;
   height: 2px;
   background: #0e7967;
@@ -163,7 +163,7 @@ header nav ul li.hide_lg {
     width: 100%;
     background: #fff;
     flex-direction: column;
-    height: calc(50vh - 100px);
+    height: calc(55vh - 100px);
     justify-content: flex-start;
     padding: 32px 0;
     transition: all 0.4s ease-in-out;
@@ -192,13 +192,14 @@ header nav .btns a {
   background: #eefbf4;
   position: relative;
   border-radius: 4px;
-  padding: 6px 20px;
+  padding: 4px 10px;
   isolation: isolate;
   overflow: hidden;
 }
 header nav .btns a span {
   z-index: 1;
   position: relative;
+  text-align: center;
 }
 header nav .btns a::after {
   position: absolute;
@@ -219,6 +220,43 @@ header nav .btns a:hover {
 header nav .btns a:hover::after {
   width: 200px;
   height: 200px;
+}
+header nav .dropdown {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin-inline-start: 50px;
+}
+header nav .dropdown .dropdown-menu {
+  height: 125px !important;
+}
+@media (max-width: 992px) {
+  header nav .dropdown {
+    margin-inline-end: 50px;
+    margin-inline-start: 0px;
+    order: -1;
+  }
+}
+header nav .dropdown:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+header nav .dropdown .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav .dropdown .show {
+  border: transparent;
+}
+header nav .dropdown i {
+  color: #fff;
+  font-size: 26px;
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 992px) {
+  header nav .dropdown i {
+    font-size: 22px;
+  }
 }
 header nav .menu-btn {
   cursor: pointer;
@@ -290,8 +328,11 @@ main {
   }
 }
 .heroSection .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-top: 20px;
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -311,7 +352,7 @@ main {
   flex-direction: column;
 }
 .heroSection .text span {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   color: #0e7967;
 }
@@ -321,7 +362,7 @@ main {
   color: #0e7967;
 }
 .heroSection .text h1 {
-  font-size: 60px;
+  font-size: 40px;
   color: #000;
   line-height: 80px;
   font-weight: 700;
@@ -344,6 +385,8 @@ main {
 }
 .heroSection .text .download_btns {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 .heroSection .text .download_btns img {
@@ -377,17 +420,29 @@ main {
   line-height: 26px;
 }
 .about_section .circle {
-  width: 400px;
-  height: 400px;
+  background-image: url(../images/find.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
+}
+.about_section .circle::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(75, 73, 73, 0.6);
 }
 @media (max-width: 576px) {
   .about_section .circle {
@@ -410,11 +465,12 @@ main {
   bottom: 0;
 }
 .about_section .circle img {
-  height: 50%;
+  height: 40%;
+  position: relative;
 }
 @media (max-width: 576px) {
   .about_section .circle img {
-    height: 50%;
+    height: 30%;
   }
 }
 .about_section .about_card {
@@ -495,9 +551,10 @@ main {
 }
 
 .findFriends {
-  padding: 40px 0;
+  padding: 50px 60px;
   background-position: center;
   position: relative;
+  text-align: center;
   height: 500px;
   background-image: url(../images/find.webp);
   isolation: isolate;
@@ -526,6 +583,8 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
   justify-content: end;
 }
@@ -539,12 +598,13 @@ main {
 }
 @media (max-width: 576px) {
   .findFriends .img img {
-    width: 80%;
+    width: 100%;
   }
 }
 @media (max-width: 576px) {
   .findFriends .img {
     justify-content: center;
+    width: 100%;
   }
 }
 .findFriends .content {
@@ -559,25 +619,37 @@ main {
   color: #fff;
   font-weight: 600;
   line-height: 65px;
-  font-size: 42px;
+  font-size: 35px;
 }
 @media (max-width: 576px) {
   .findFriends .content h2 {
     line-height: 46px;
-    font-size: 28px;
+    font-size: 20px;
   }
 }
 .findFriends .content .download_btns {
   display: flex;
   gap: 16px;
   margin-top: 32px;
+  margin-left: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 576px) {
+  .findFriends .content .download_btns {
+    margin: 0;
+  }
 }
 .findFriends .content .download_btns img {
   height: 52px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 576px) {
   .findFriends .content .download_btns img {
-    height: 44px;
+    height: 50px;
+    width: 100px;
   }
 }
 
@@ -641,7 +713,7 @@ main {
   position: absolute;
   top: 50%;
   right: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, -50%);
   z-index: 2;
 }
 @media (max-width: 768px) {
@@ -674,9 +746,8 @@ main {
   -o-object-position: center;
      object-position: center;
   position: relative;
-  background-image: url(../images/contact.jpg);
+  background-image: linear-gradient(180deg, #02a350, #0e7967);
   isolation: isolate;
-  background-size: cover;
 }
 .contact form {
   padding: 48px 32px;
@@ -691,7 +762,7 @@ main {
 }
 @media (max-width: 576px) {
   .contact form {
-    padding: 32px 0;
+    padding: 22px 0;
   }
 }
 .contact form .form-group {
@@ -701,7 +772,7 @@ main {
 @media (max-width: 768px) {
   .contact form .form-group {
     flex-direction: column;
-    gap: 48px;
+    gap: 20px;
   }
 }
 .contact form .form-group .inputfield {
@@ -733,6 +804,7 @@ main {
 .contact form .form-group .inputfield textarea {
   width: 100%;
   height: 45px;
+  color: #fff;
   border: none;
   background: none;
   outline: none;
@@ -758,7 +830,7 @@ main {
   height: 2px;
   background: #0e7967;
   position: absolute;
-  transform: translate(-50%);
+  transform: translate(50%, -50%);
 }
 .contact form button {
   border: none;
@@ -799,9 +871,78 @@ main {
   width: 110%;
   left: -10px;
 }
+@media (max-width: 576px) {
+  .contact form button {
+    margin: 0 auto;
+  }
+}
+.contact form .cont_rep {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 576px) {
+  .contact form .cont_rep {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+}
+.contact form .reCAPTCHA_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+@media (max-width: 576px) {
+  .contact form .reCAPTCHA_container {
+    width: 90%;
+  }
+}
+.contact form .reCAPTCHA_container .box_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact form .reCAPTCHA_container .box_input input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c1c1c1;
+  margin: 0px 8px 0px 8px;
+}
+.contact form .reCAPTCHA_container .box_input input[type=checkbox]:checked::before {
+  content: url(https://img.icons8.com/?size=20&id=27&format=png&color=1e5180);
+  display: block;
+}
+.contact form .reCAPTCHA_container .box_input p {
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
+}
+.contact form .reCAPTCHA_container .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact form .reCAPTCHA_container .img h5 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 8px;
+  color: #000;
+}
 
 footer {
-  padding: 20px 0;
+  padding: 8px 0;
 }
 footer .follow {
   display: flex;
@@ -820,7 +961,7 @@ footer .follow ul a {
   justify-content: center;
   color: #000;
   transition: 0.3s ease-in-out;
-  border-radius: 50%;
+  border-radius: 25%;
   background: #eefbf4;
 }
 footer .follow ul a:hover {
@@ -836,6 +977,14 @@ footer .copy p {
 
 .services {
   padding: 40px 0;
+  background-color: #eee;
+}
+.services .serv_section {
+  background-color: #fff;
+  border: 1px solid #fff;
+  box-shadow: rgba(101, 243, 35, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 32px;
+  border-radius: 8px 8px 8px 0;
 }
 .services .title {
   margin-bottom: 24px;
@@ -843,6 +992,7 @@ footer .copy p {
 .services .img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 2/1;
 }
 .services .img:nth-child(1) {
   border-radius: 8px 8px 8px 0;
@@ -858,13 +1008,13 @@ footer .copy p {
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
 }
 .services .content h2 {
-  font-size: 24px;
+  font-size: 28px;
   color: #0e7967;
   font-weight: 600;
 }
 .services .content p {
   color: #000;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 26px;
 }
 .services .content h6 {
